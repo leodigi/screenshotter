@@ -19,6 +19,9 @@ def take_screenshot(url):
 def main():
     st.title("Website Screenshot Generator")
 
+    # Disable automatic serving of favicon
+    st.set_page_config(transparent_sidebar=True)
+
     # Input URL(s) from user
     urls = st.text_area("Enter URL(s) (separate multiple URLs with new lines):")
 
