@@ -2,6 +2,12 @@ import streamlit as st
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import base64
+from PIL import Image
+
+# Function to generate a dummy favicon image
+def generate_dummy_favicon():
+    img = Image.new('RGB', (16, 16), color = 'white')
+    return img
 
 # Function to take full page screenshot using Selenium
 def take_screenshot(url):
@@ -19,8 +25,8 @@ def take_screenshot(url):
 def main():
     st.title("Website Screenshot Generator")
 
-    # Disable automatic serving of favicon
-    st.set_page_config(transparent_sidebar=True)
+    # Dummy favicon image
+    favicon = generate_dummy_favicon()
 
     # Input URL(s) from user
     urls = st.text_area("Enter URL(s) (separate multiple URLs with new lines):")
